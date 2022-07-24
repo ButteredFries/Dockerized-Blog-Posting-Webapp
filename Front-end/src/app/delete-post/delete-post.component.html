@@ -1,0 +1,9 @@
+
+<div>
+    <form #postData="ngForm" (ngSubmit)="sendDelete(postData.value)">
+        <input type="text" name="ID" placeholder="id" ngModel>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<router-outlet></router-outlet>)

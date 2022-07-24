@@ -1,0 +1,12 @@
+
+<div>
+    <form #postData="ngForm" (ngSubmit)="sendPost(postData.value)">
+        <input type="text" name="Author" placeholder="Author" ngModel>
+        <input type="text" name="Title" placeholder="Title" ngModel>
+        <input type="text" name="Content" placeholder="Content" ngModel>
+        <input type="text" name="Tags" placeholder="Tags" ngModel>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+<router-outlet></router-outlet>)

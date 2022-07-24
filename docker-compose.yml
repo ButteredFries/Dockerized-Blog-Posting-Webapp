@@ -1,0 +1,31 @@
+version: "3.1"
+services:
+  front-end:
+    image: front-end
+    depends_on:
+      - back-end
+    ports:
+      - "80:80"
+  back-end:
+    image: back-end
+    environment:
+      MONGODB_CONNSTRING: mongodb://user:pass@mongodb:27017/?authSource=admin
+    depends_on:
+      - mongoDB
+    ports:
+      - "8080:8080"
+  mongoDB:
+    image: mongo:4.2.3
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: user
+      MONGO_INITDB_ROOT_PASSWORD: pass
+      MONGO_INITDB_DATABASE: content
+    volumes:
+      # Copies init-mongo.js to /docker-entrypoint-initdb.d/ as a read only file.
+      # /docker-entrypoint-initdb.d is a folder created inside the mongo container used for initiating databases
+      - ./MongoDB/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      # Set data on container to persist on local folder called mongo-volume. /data/db/ is a folder already created in the mongo container
+      - ./MongoDB/mongo-volume:/data/db
+    ports: 
+      - "27017:27017"

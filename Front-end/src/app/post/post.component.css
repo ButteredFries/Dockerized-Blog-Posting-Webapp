@@ -1,0 +1,12 @@
+p {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+div {
+    width: 50%;
+    margin:auto;
+    border: 1px;
+    border-color: gray;
+    border-style: solid;
+    border-radius: 15px;
+}
