@@ -28,6 +28,8 @@ Default address is Localhost and Port is 80 for the front-end, 8080 for the back
 
 3. Run using "docker-compose up" in the root directory ./
 
+4. If "docker-compose up" runs an older version of the program run "docker-compose -d --build"
+
 
 **How to access front-end:**
 

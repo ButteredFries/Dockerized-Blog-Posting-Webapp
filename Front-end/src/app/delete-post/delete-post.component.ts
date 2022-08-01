@@ -34,9 +34,12 @@ export class DeletePostComponent implements OnInit {
             .subscribe({
                 next: data => {
                     console.log(data);
+                    document.getElementById("code")!.textContent = "Success!";
+                    
                 },
                 error: error => {
                     console.log(error);
+                    document.getElementById("code")!.textContent = "Failure: " + error.name;
                 }
             });
     }

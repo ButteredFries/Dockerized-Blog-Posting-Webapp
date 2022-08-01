@@ -24,9 +24,11 @@ export class SendPostComponent implements OnInit {
             .subscribe({
                 next: data => {
                     console.log(data);
+                    document.getElementById("code")!.textContent = "Success! ID: " + data._id;
                 },
                 error: error => {
                     console.log(error);
+                    document.getElementById("code")!.textContent = "Failure: " + error.name;
                 }
             });
     }
